@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CardioRun™ · Sander · Presidente Bernardes Corrida</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#007C78;--teal2:#0A8F86;--tealDark:#075E56;--tealSoft:#E5F5F2;
+  --mag:#C0265C;--magSoft:#FBE8F0;
+  --green:#11845B;--greenSoft:#EAF8F0;
+  --amber:#B7791F;--amberSoft:#FFF5DA;
+  --ink:#20242A;--muted:#697280;--soft:#98A2B3;
+  --line:#E6E4DF;--line2:#EEF0EA;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"Manrope",system-ui,sans-serif;color:var(--ink);
+  background:
+    radial-gradient(circle at 8% 12%,rgba(0,124,120,.10),transparent 30%),
+    radial-gradient(circle at 90% 6%,rgba(192,38,92,.09),transparent 28%),
+    radial-gradient(circle at 50% 90%,rgba(0,124,120,.05),transparent 40%),
+    linear-gradient(160deg,#ffffff 0%,#F4F9F7 40%,#F8F7F4 100%);
+  min-height:100vh;-webkit-font-smoothing:antialiased;
+}
+.bg-deco{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.bg-deco:before{content:"";position:absolute;top:-40px;left:-100px;width:300px;height:300px;border:1.5px solid rgba(0,124,120,.14);border-radius:50%}
+.bg-deco:after{content:"";position:absolute;bottom:-80px;right:-120px;width:380px;height:380px;border:1.5px solid rgba(192,38,92,.10);border-radius:50%}
+.page{max-width:680px;margin:0 auto;padding:36px 22px 60px;position:relative;z-index:1}
+
+/* HEADER */
+.header{text-align:center;margin-bottom:40px}
+.brand-line{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:20px}
+.brand-name{font-size:13px;font-weight:800;letter-spacing:6px;color:var(--tealDark);text-transform:uppercase}
+.brand-dot{width:5px;height:5px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--mag))}
+.tagline{font-size:11px;font-weight:800;letter-spacing:4px;color:var(--mag);text-transform:uppercase;margin-bottom:28px}
+.hero-phrase{font-size:clamp(28px,6vw,42px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;color:var(--ink);margin-bottom:6px}
+.hero-phrase .accent{color:var(--teal)}.hero-phrase .accent2{color:var(--mag)}
+.hero-line{height:2px;width:60px;background:linear-gradient(90deg,var(--teal),var(--mag));margin:18px auto 24px;border-radius:2px}
+.athlete-pill{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 18px;box-shadow:0 4px 16px rgba(16,24,40,.06)}
+.athlete-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--teal2));display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;flex-shrink:0}
+.athlete-name{font-size:15px;font-weight:800;color:var(--ink)}
+.athlete-meta{font-size:11px;color:var(--muted);font-weight:600}
+.event-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;flex-wrap:wrap}
+.event-tag{font-size:11px;font-weight:800;letter-spacing:1px;color:var(--tealDark);background:var(--tealSoft);border:1px solid rgba(0,124,120,.18);border-radius:999px;padding:5px 12px;text-transform:uppercase}
+.event-date{font-size:11px;font-weight:700;color:var(--soft)}
+
+/* DESTAQUE ALTIMETRIA */
+.alto-banner{background:linear-gradient(135deg,var(--tealDark) 0%,#0d6b62 100%);border-radius:16px;padding:16px 22px;margin-bottom:16px;display:flex;align-items:center;gap:14px;box-shadow:0 8px 28px rgba(0,124,120,.18)}
+.alto-icon{font-size:28px;flex-shrink:0}
+.alto-title{font-size:13px;font-weight:800;color:#fff;margin-bottom:2px}
+.alto-sub{font-size:12px;color:rgba(255,255,255,.75);font-weight:600}
+
+/* CLASSIFICAÇÃO */
+.classif{background:linear-gradient(135deg,var(--tealDark) 0%,var(--teal2) 100%);border-radius:20px;padding:24px 28px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 12px 40px rgba(0,124,120,.18);position:relative;overflow:hidden}
+.classif:after{content:"";position:absolute;top:-30px;right:-30px;width:120px;height:120px;border:1.5px solid rgba(255,255,255,.12);border-radius:50%}
+.classif:before{content:"";position:absolute;bottom:-20px;left:60px;width:80px;height:80px;border:1px solid rgba(255,255,255,.08);border-radius:50%}
+.classif-left{position:relative;z-index:1}
+.classif-label{font-size:10px;font-weight:800;letter-spacing:2px;color:rgba(255,255,255,.65);text-transform:uppercase;margin-bottom:6px}
+.classif-title{font-size:26px;font-weight:800;color:#fff;letter-spacing:-.5px;line-height:1}
+.classif-sub{font-size:12px;color:rgba(255,255,255,.75);font-weight:600;margin-top:4px}
+.classif-badge{background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.25);border-radius:14px;padding:14px 18px;text-align:center;position:relative;z-index:1;flex-shrink:0}
+.classif-badge-val{font-size:28px;font-weight:800;color:#fff;line-height:1}
+.classif-badge-label{font-size:10px;color:rgba(255,255,255,.7);font-weight:700;margin-top:3px;letter-spacing:.5px}
+
+/* MÉTRICAS */
+.metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.metric-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 18px;box-shadow:0 4px 16px rgba(16,24,40,.05);position:relative;overflow:hidden}
+.metric-card:after{content:"";position:absolute;top:0;left:0;width:3px;height:100%;background:var(--teal);border-radius:3px 0 0 3px}
+.metric-card.mag-accent:after{background:var(--mag)}
+.metric-card.green-accent:after{background:var(--green)}
+.metric-card.amber-accent:after{background:var(--amber)}
+.metric-label{font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--soft);text-transform:uppercase;margin-bottom:8px}
+.metric-val{font-size:36px;font-weight:800;letter-spacing:-1.5px;color:var(--teal);line-height:1}
+.metric-val.mag{color:var(--mag)}.metric-val.green{color:var(--green)}.metric-val.amber{color:var(--amber)}
+.metric-unit{font-size:12px;font-weight:700;color:var(--soft);margin-top:2px}
+.metric-note{font-size:11px;font-weight:600;color:var(--muted);margin-top:6px;line-height:1.4}
+
+/* FC FULL */
+.metric-full{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 22px;margin-bottom:12px;box-shadow:0 4px 16px rgba(16,24,40,.05);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.metric-full-left .metric-label{font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--soft);text-transform:uppercase;margin-bottom:6px}
+.metric-full-val{font-size:42px;font-weight:800;letter-spacing:-2px;color:var(--mag);line-height:1}
+.metric-full-unit{font-size:12px;font-weight:700;color:var(--soft);margin-top:2px}
+.metric-full-right{text-align:right}
+.metric-full-tag{display:inline-block;background:var(--magSoft);color:var(--mag);border:1px solid rgba(192,38,92,.18);border-radius:999px;padding:5px 12px;font-size:11px;font-weight:800}
+.metric-full-note{font-size:11px;color:var(--muted);font-weight:600;margin-top:6px}
+
+/* CADÊNCIA DESTAQUE */
+.cadencia-card{background:linear-gradient(135deg,#E5F5F2 0%,#fff 100%);border:1px solid rgba(0,124,120,.18);border-radius:18px;padding:20px 22px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.cad-left .metric-label{font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--soft);text-transform:uppercase;margin-bottom:6px}
+.cad-val{font-size:42px;font-weight:800;letter-spacing:-2px;color:var(--tealDark);line-height:1}
+.cad-unit{font-size:12px;font-weight:700;color:var(--soft);margin-top:2px}
+.cad-right{text-align:right}
+.cad-badge{display:inline-block;background:var(--tealDark);color:#fff;border-radius:999px;padding:6px 14px;font-size:11px;font-weight:800;margin-bottom:6px}
+.cad-note{font-size:11px;color:var(--muted);font-weight:600}
+
+/* DESTAQUES */
+.highlights{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.highlight-item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;align-items:flex-start;gap:12px;box-shadow:0 2px 10px rgba(16,24,40,.04)}
+.hi-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.hi-green{background:var(--greenSoft)}.hi-teal{background:var(--tealSoft)}.hi-mag{background:var(--magSoft)}.hi-amber{background:var(--amberSoft)}
+.hi-title{font-size:13px;font-weight:800;color:var(--ink);margin-bottom:3px}
+.hi-text{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* COMPARATIVO */
+.comp-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 22px;margin-bottom:20px;box-shadow:0 4px 16px rgba(16,24,40,.05)}
+.comp-title{font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--soft);text-transform:uppercase;margin-bottom:14px}
+.comp-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid var(--line2);border-radius:12px;overflow:hidden;margin-bottom:8px}
+.comp-cell{padding:12px 14px;text-align:center;border-right:1px solid var(--line2)}
+.comp-cell:last-child{border-right:none}
+.comp-head{font-size:10px;font-weight:800;color:var(--soft);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.comp-val{font-size:16px;font-weight:800;color:var(--ink)}
+.comp-val.teal{color:var(--teal)}.comp-val.muted{color:var(--muted);font-size:14px}
+.comp-note{font-size:10px;color:var(--muted);font-weight:600;margin-top:2px}
+
+/* PROJEÇÃO */
+.projection{background:linear-gradient(135deg,#FBE8F0 0%,#fff 60%,#E5F5F2 100%);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:20px}
+.proj-label{font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--soft);text-transform:uppercase;margin-bottom:14px}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.proj-item{text-align:center;background:rgba(255,255,255,.7);border:1px solid var(--line2);border-radius:12px;padding:14px 10px}
+.proj-dist{font-size:11px;font-weight:800;color:var(--soft);margin-bottom:4px}
+.proj-val{font-size:18px;font-weight:800;letter-spacing:-1px;color:var(--tealDark)}
+.proj-note{font-size:10px;font-weight:700;color:var(--mag);margin-top:3px}
+
+/* PRINT BUTTON */
+.print-area{text-align:center;margin-bottom:28px}
+.btn-print{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;border:none;border-radius:999px;padding:14px 28px;font-size:13px;font-weight:800;font-family:"Manrope",sans-serif;cursor:pointer;box-shadow:0 8px 24px rgba(0,124,120,.22);transition:all .2s;letter-spacing:.3px}
+.btn-print:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(0,124,120,.28)}
+.btn-print svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-brand{font-size:12px;font-weight:800;color:var(--tealDark)}
+.footer-brand span{display:block;font-size:11px;font-weight:600;color:var(--soft);margin-top:1px}
+.footer-right{font-size:11px;color:var(--soft);font-weight:600;text-align:right}
+
+@media print{
+  body{background:white!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .bg-deco,.btn-print,.print-area{display:none!important}
+  .page{padding:20px 16px;max-width:100%}
+  .classif,.alto-banner{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .metric-card,.metric-full,.cadencia-card,.highlight-item,.projection,.comp-card{box-shadow:none!important;border:1px solid #e0e0e0!important}
+  @page{margin:1.5cm;size:A4 portrait}
+}
+
+@media(max-width:480px){
+  .metrics-grid{grid-template-columns:1fr 1fr}
+  .proj-grid{grid-template-columns:1fr 1fr 1fr}
+  .classif{flex-direction:column;text-align:center}
+  .metric-full,.cadencia-card{flex-direction:column;gap:10px}
+  .metric-full-right,.cad-right{text-align:left}
+  .footer{flex-direction:column;align-items:flex-start}
+  .footer-right{text-align:left}
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.header{animation:fadeUp .5s ease both}
+.alto-banner{animation:fadeUp .5s .05s ease both}
+.classif{animation:fadeUp .5s .1s ease both}
+.metrics-grid{animation:fadeUp .5s .2s ease both}
+.metric-full{animation:fadeUp .5s .25s ease both}
+.cadencia-card{animation:fadeUp .5s .3s ease both}
+.highlights{animation:fadeUp .5s .35s ease both}
+.comp-card{animation:fadeUp .5s .38s ease both}
+.projection{animation:fadeUp .5s .4s ease both}
+</style>
+</head>
+<body>
+<div class="bg-deco"></div>
+<main class="page">
+
+<!-- HEADER -->
+<header class="header">
+  <div class="brand-line">
+    <div class="brand-dot"></div>
+    <div class="brand-name">CardioRun™</div>
+    <div class="brand-dot"></div>
+  </div>
+  <div class="tagline">Análise Fisiológica · Performance em Corrida</div>
+  <div class="hero-phrase">
+    Prova <span class="accent">analisada.</span><br>
+    Performance <span class="accent2">confirmada.</span>
+  </div>
+  <div class="hero-line"></div>
+  <div class="athlete-pill">
+    <div class="athlete-avatar">S</div>
+    <div>
+      <div class="athlete-name">Sander Soares</div>
+      <div class="athlete-meta">Corredor · Ubá, MG</div>
+    </div>
+  </div>
+  <div class="event-row">
+    <div class="event-tag">🏁 Presidente Bernardes Corrida</div>
+    <div class="event-date">Sábado · 07 jun 2026 · 08h · 13,9°C</div>
+  </div>
+</header>
+
+<!-- DESTAQUE ALTIMETRIA -->
+<div class="alto-banner">
+  <div class="alto-icon">⛰️</div>
+  <div>
+    <div class="alto-title">Prova de alta altimetria · +119 m acumulados</div>
+    <div class="alto-sub">Elevação entre 585 m e 682 m · Percurso tecnicamente exigente</div>
+  </div>
+</div>
+
+<!-- CLASSIFICAÇÃO -->
+<div class="classif">
+  <div class="classif-left">
+    <div class="classif-label">Nível do Atleta</div>
+    <div class="classif-title">Resistente</div>
+    <div class="classif-sub">Corredor de montanha · Perfil técnico</div>
+  </div>
+  <div class="classif-badge">
+    <div class="classif-badge-val">4:15</div>
+    <div class="classif-badge-label">pace médio<br>em terreno acidentado</div>
+  </div>
+</div>
+
+<!-- MÉTRICAS -->
+<div class="metrics-grid">
+  <div class="metric-card">
+    <div class="metric-label">Tempo de Prova</div>
+    <div class="metric-val mag">23:21</div>
+    <div class="metric-unit">min:seg</div>
+    <div class="metric-note">5,50 km · prova oficial</div>
+  </div>
+  <div class="metric-card mag-accent">
+    <div class="metric-label">Ritmo Médio</div>
+    <div class="metric-val mag">4:15</div>
+    <div class="metric-unit">/km</div>
+    <div class="metric-note">Melhor ritmo: 2:54/km</div>
+  </div>
+  <div class="metric-card amber-accent">
+    <div class="metric-label">Altimetria</div>
+    <div class="metric-val amber">+119</div>
+    <div class="metric-unit">metros de subida</div>
+    <div class="metric-note">Percurso 3× mais exigente que plano</div>
+  </div>
+  <div class="metric-card green-accent">
+    <div class="metric-label">Efeito Aeróbico</div>
+    <div class="metric-val green">3.9</div>
+    <div class="metric-unit">Impactando</div>
+    <div class="metric-note">Sessão altamente produtiva</div>
+  </div>
+</div>
+
+<!-- FC -->
+<div class="metric-full">
+  <div class="metric-full-left">
+    <div class="metric-label">Frequência Cardíaca Máxima</div>
+    <div class="metric-full-val">184</div>
+    <div class="metric-full-unit">bpm</div>
+  </div>
+  <div class="metric-full-right">
+    <div class="metric-full-tag">FC média: 159 bpm</div>
+    <div class="metric-full-note">FC controlada em<br>terreno altamente exigente</div>
+  </div>
+</div>
+
+<!-- CADÊNCIA -->
+<div class="cadencia-card">
+  <div class="cad-left">
+    <div class="metric-label">Cadência Média</div>
+    <div class="cad-val">180</div>
+    <div class="cad-unit">passos/min · passada: 1,31 m</div>
+  </div>
+  <div class="cad-right">
+    <div class="cad-badge">⚡ Padrão Elite</div>
+    <div class="cad-note">180 ppm = referência<br>de corredores de elite<br>Pico: 201 ppm</div>
+  </div>
+</div>
+
+<!-- DESTAQUES -->
+<div class="highlights">
+  <div class="highlight-item">
+    <div class="hi-icon hi-amber">⛰️</div>
+    <div>
+      <div class="hi-title">119 metros de subida — e o ritmo não quebrou</div>
+      <div class="hi-text">Manter 4:15/km com +119 m acumulados e elevação entre 585–682 m é tecnicamente muito mais exigente do que o mesmo pace em terreno plano. Isso exige força muscular, resistência aeróbia e controle mental.</div>
+    </div>
+  </div>
+  <div class="highlight-item">
+    <div class="hi-icon hi-teal">🦵</div>
+    <div>
+      <div class="hi-title">Cadência de 180 ppm — padrão de corredor de elite</div>
+      <div class="hi-text">Jack Daniels observou nas Olimpíadas de 1984 que corredores de elite mantinham 180 ppm. Sander atingiu exatamente esse número em prova de alta altimetria — indicativo de mecânica eficiente e baixo impacto articular.</div>
+    </div>
+  </div>
+  <div class="highlight-item">
+    <div class="hi-icon hi-green">✓</div>
+    <div>
+      <div class="hi-title">FC controlada para a exigência da prova</div>
+      <div class="hi-text">FC média de 159 bpm em percurso altamente acidentado demonstra boa eficiência cardiovascular. Em terreno plano equivalente, a mesma FC corresponderia a um ritmo significativamente mais rápido.</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARATIVO COM TOCANTINS -->
+<div class="comp-card">
+  <div class="comp-title">📊 Evolução · Tocantins vs. Bernardes</div>
+  <div class="comp-row">
+    <div class="comp-cell"><div class="comp-head">Indicador</div><div class="comp-val muted">—</div></div>
+    <div class="comp-cell"><div class="comp-head">Tocantins</div><div class="comp-val muted" style="font-size:11px">24 mai</div></div>
+    <div class="comp-cell"><div class="comp-head">Bernardes</div><div class="comp-val muted" style="font-size:11px">07 jun</div></div>
+  </div>
+  <div class="comp-row">
+    <div class="comp-cell"><div class="comp-head">Distância</div><div class="comp-val muted">—</div></div>
+    <div class="comp-cell"><div class="comp-val">4,88 km</div></div>
+    <div class="comp-cell"><div class="comp-val teal">5,50 km</div></div>
+  </div>
+  <div class="comp-row">
+    <div class="comp-cell"><div class="comp-head">Altimetria</div><div class="comp-val muted">—</div></div>
+    <div class="comp-cell"><div class="comp-val">+40 m</div></div>
+    <div class="comp-cell"><div class="comp-val teal">+119 m</div></div>
+  </div>
+  <div class="comp-row">
+    <div class="comp-cell"><div class="comp-head">Cadência</div><div class="comp-val muted">—</div></div>
+    <div class="comp-cell"><div class="comp-val">178 ppm</div></div>
+    <div class="comp-cell"><div class="comp-val teal">180 ppm</div></div>
+  </div>
+  <div class="comp-row">
+    <div class="comp-cell"><div class="comp-head">FC média</div><div class="comp-val muted">—</div></div>
+    <div class="comp-cell"><div class="comp-val">169 bpm</div></div>
+    <div class="comp-cell"><div class="comp-val teal">159 bpm</div></div>
+  </div>
+  <p style="font-size:11px;color:var(--muted);font-weight:600;margin-top:12px;line-height:1.5">FC 10 bpm mais baixa em prova tecnicamente mais difícil — possível sinal de evolução do condicionamento aeróbio entre as provas.</p>
+</div>
+
+<!-- PROJEÇÃO -->
+<div class="projection">
+  <div class="proj-label">🎯 Projeção de Performance · Base nesta prova</div>
+  <div class="proj-grid">
+    <div class="proj-item">
+      <div class="proj-dist">5 km plano</div>
+      <div class="proj-val">~20:30</div>
+      <div class="proj-note">estimativa</div>
+    </div>
+    <div class="proj-item">
+      <div class="proj-dist">10 km</div>
+      <div class="proj-val">~43min</div>
+      <div class="proj-note">estimativa</div>
+    </div>
+    <div class="proj-item">
+      <div class="proj-dist">Cadência</div>
+      <div class="proj-val">180</div>
+      <div class="proj-note">ppm · elite</div>
+    </div>
+  </div>
+  <p style="font-size:11px;color:var(--muted);font-weight:600;margin-top:12px;text-align:center">Projeção conservadora — percurso de alta altimetria penaliza o pace médio. Em terreno plano o potencial é superior.</p>
+</div>
+
+<!-- BOTÃO PDF -->
+<div class="print-area">
+  <button class="btn-print" onclick="window.print()">
+    <svg viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    Salvar como PDF
+  </button>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-brand">
+    CardioRun™
+    <span>Análise Fisiológica · Performance em Corrida</span>
+  </div>
+  <div class="footer-right">
+    Sherley Ferreira · Ed. Física · MSc Nutrição<br>
+    Ubá · MG · Junho 2026
+  </div>
+</footer>
+
+</main>
+</body>
+</html>
